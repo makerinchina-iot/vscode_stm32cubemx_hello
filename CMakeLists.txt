@@ -19,7 +19,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set the project name
-set(CMAKE_PROJECT_NAME hc_sr04)
+set(CMAKE_PROJECT_NAME hello)
 
 # Include toolchain file
 include("cmake/gcc-arm-none-eabi.cmake")
@@ -39,10 +39,6 @@ add_executable(${CMAKE_PROJECT_NAME})
 
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
-
-add_subdirectory(libs/log)
-add_subdirectory(libs/segger_rtt)
-add_subdirectory(libs/utils)
 
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
@@ -69,6 +65,4 @@ target_link_libraries(${CMAKE_PROJECT_NAME}
     stm32cubemx
 
     # Add user defined libraries
-    log
-    utils
 )
